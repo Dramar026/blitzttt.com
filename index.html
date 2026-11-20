@@ -1,0 +1,1353 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLIZTTT | Fashion Store</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&display=swap" rel="stylesheet">
+
+<style>
+  /* DROPDOWN KATEGORI NAVBAR */
+
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    border: none;
+    border-radius: 12px;
+    padding: 8px;
+    margin-top: 10px;
+    min-width: 170px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 11px 15px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: #c47c55;
+    color: white;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#faf9f6;
+color:#222;
+}
+
+/* NAVBAR LOGO */
+.navbar {
+    min-height: 90px;
+    background: #faf9f6;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-brand img {
+    width: 190px;
+    height: 75px;
+    object-fit: contain;
+    display: block;
+    transition: .3s ease;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.03);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar {
+        min-height: 75px;
+    }
+
+    .navbar-brand img {
+        width: 145px;
+        height: 60px;
+    }
+}
+
+.nav-link{
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:600;
+    color:#333;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    color:#c47c55;
+}
+
+.icon-btn{
+border:none;
+background:none;
+font-size:22px;
+margin-left:15px;
+color:#333;
+position:relative;
+}
+
+.cart-count{
+position:absolute;
+top:-5px;
+right:-8px;
+background:#c47c55;
+color:white;
+font-size:10px;
+border-radius:50%;
+padding:2px 6px;
+}
+
+.search-box{
+display:flex;
+align-items:center;
+background:#f5f2ef;
+border-radius:30px;
+padding:8px 15px;
+max-width:250px;
+}
+
+.search-box input{
+border:none;
+outline:none;
+background:transparent;
+width:100%;
+font-size:12px;
+}
+
+.hero{padding:35px 0}
+
+.hero-slide{
+min-height:460px;
+border-radius:25px;
+background:
+linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.05)),
+url('images/model\ 2.1.jpeg') center/cover;
+display:flex;
+align-items:center;
+padding:60px;
+color:white;
+}
+
+.hero-content{max-width:500px}
+
+.hero-content small{
+color:#f2c5a7;
+letter-spacing:4px;
+font-weight:600;
+}
+
+.hero-content h1{
+font-size:clamp(35px,5vw,60px);
+font-weight:800;
+margin:20px 0;
+}
+
+.hero-content p{line-height:1.8;color:#eee}
+
+.btn-fashion{
+background:#c47c55;
+color:white;
+border-radius:30px;
+padding:12px 28px;
+font-weight:600;
+border:none;
+}
+
+.btn-fashion:hover{
+background:#a9613d;
+color:white;
+}
+
+.section-space{padding:65px 0}
+
+.section-title{
+font-weight:700;
+font-size:32px;
+}
+
+.section-subtitle{
+color:#888;
+font-size:14px;
+margin-bottom:35px;
+}
+
+/* KATEGORI */
+
+.category-buttons{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+margin-bottom:35px;
+}
+
+.category-btn{
+border:1px solid #c47c55;
+background:white;
+color:#c47c55;
+border-radius:30px;
+padding:11px 25px;
+font-size:13px;
+font-weight:600;
+transition:.3s;
+}
+
+.category-btn:hover,
+.category-btn.active{
+background:#c47c55;
+color:white;
+}
+
+/* PRODUK */
+
+.product-card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+border:1px solid #eee;
+height:100%;
+transition:.3s;
+}
+
+.product-card:hover{
+transform:translateY(-7px);
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.product-image{
+height:260px;
+position:relative;
+overflow:hidden;
+background:#eee;
+}
+
+.product-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.product-card:hover img{transform:scale(1.05)}
+
+.product-info{padding:18px}
+
+.product-info h6{
+font-weight:600;
+font-size:14px;
+}
+
+.price{
+color:#c47c55;
+font-weight:700;
+font-size:16px;
+}
+
+.product-label{
+position:absolute;
+top:12px;
+left:12px;
+background:#c47c55;
+color:white;
+font-size:10px;
+padding:5px 12px;
+border-radius:20px;
+}
+
+.product-actions{
+display:flex;
+gap:8px;
+margin-top:14px;
+}
+
+.product-actions button{
+border:none;
+border-radius:25px;
+padding:9px 12px;
+font-size:12px;
+font-weight:600;
+}
+
+.btn-love{
+background:#f8e8e5;
+color:#d9534f;
+}
+
+.btn-love.loved{
+background:#d9534f;
+color:white;
+}
+
+.btn-cart{
+background:#c47c55;
+color:white;
+flex:1;
+}
+
+.btn-cart:hover{background:#a9613d}
+
+/* KERANJANG */
+
+.cart-item{
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px 0;
+border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+width:75px;
+height:85px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.cart-item-info{flex:1}
+
+.cart-item-info h6{
+font-size:13px;
+font-weight:600;
+}
+
+.cart-item-info p{
+font-size:13px;
+color:#c47c55;
+font-weight:600;
+margin:0;
+}
+
+.quantity-control{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:8px;
+}
+
+.quantity-control button{
+border:1px solid #ddd;
+background:white;
+border-radius:5px;
+width:25px;
+height:25px;
+}
+
+.remove-btn{
+border:none;
+background:none;
+color:#d9534f;
+font-size:18px;
+}
+
+.cart-total{
+border-top:1px solid #eee;
+padding-top:20px;
+margin-top:20px;
+}
+
+.cart-total h5{
+font-weight:700;
+color:#c47c55;
+}
+
+/* FAVORIT */
+
+.favorite-empty{
+text-align:center;
+padding:35px 10px;
+color:#888;
+}
+
+.modal-content{border-radius:20px;border:none}
+
+.modal-header{border-bottom:1px solid #eee}
+
+.modal-title{font-weight:700}
+
+.promo{
+background:#282522;
+border-radius:25px;
+color:white;
+padding:55px 40px;
+}
+
+.promo h2{font-weight:800;font-size:36px}
+
+.promo span{color:#d99a74}
+
+.newsletter{
+background:#f0e8e1;
+padding:55px 20px;
+text-align:center;
+border-radius:20px;
+}
+
+.newsletter input{
+border:none;
+border-radius:30px;
+padding:13px 20px;
+max-width:330px;
+width:100%;
+outline:none;
+}
+
+footer{
+background:#24211f;
+color:#ddd;
+padding:55px 0 20px;
+margin-top:70px;
+}
+
+footer h5{
+color:white;
+font-weight:700;
+margin-bottom:20px;
+}
+
+footer p,footer a{
+color:#aaa;
+font-size:13px;
+text-decoration:none;
+line-height:2;
+}
+
+footer a:hover{color:#d99a74}
+
+.copyright{
+border-top:1px solid #403b37;
+padding-top:20px;
+margin-top:35px;
+text-align:center;
+color:#888;
+font-size:12px;
+}
+
+@media(max-width:768px){
+.hero-slide{min-height:380px;padding:25px}
+.hero-content h1{font-size:36px}
+.product-image{height:190px}
+.section-space{padding:45px 0}
+.search-box{max-width:100%;margin:12px 0}
+}
+/* DROPDOWN KATEGORI NAVBAR */
+
+.nav-item.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    border: none;
+    border-radius: 12px;
+    padding: 8px;
+    margin-top: 10px;
+    min-width: 170px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.10);
+}
+
+.dropdown-menu .dropdown-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 11px 15px;
+    border-radius: 8px;
+    transition: .3s;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: #c47c55;
+    color: white;
+}
+
+.dropdown-toggle::after {
+    margin-left: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+<div class="container">
+
+<a class="navbar-brand" href="#home">
+    <img src="images/blizttt-logo.png" alt="BLIZTTT Fashion Store">
+</a>
+
+<button class="navbar-toggler" type="button"
+data-bs-toggle="collapse" data-bs-target="#menu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav mx-auto">
+<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle"
+       href="#"
+       id="kategoriDropdown"
+       role="button"
+       data-bs-toggle="dropdown"
+       aria-expanded="false">
+        Kategori
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="kategoriDropdown">
+
+        <li>
+            <a class="dropdown-item" href="#produk"
+               onclick="pilihKategori('Pria')">
+                <i class="bi bi-person me-2"></i> Pria
+            </a>
+        </li>
+
+        <li>
+    <a class="dropdown-item" href="#produk"
+       onclick="pilihKategori('Wanita')">
+        <i class="bi bi-person-standing-dress me-2"></i>
+        Wanita
+    </a>
+</li>
+
+        <li>
+            <a class="dropdown-item" href="#produk"
+               onclick="pilihKategori('Anak')">
+                <i class="bi bi-people me-2"></i> Anak-anak
+            </a>
+        </li>
+
+    </ul>
+</li>
+<li class="nav-item"><a class="nav-link" href="#produk">Produk</a></li>
+<li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+</ul>
+
+<div class="d-flex align-items-center flex-wrap">
+
+<div class="search-box">
+<i class="bi bi-search me-2"></i>
+<input type="text" id="searchInput"
+placeholder="Cari produk..." oninput="searchProducts()">
+</div>
+
+<button class="icon-btn" onclick="showFavorites()"
+title="Produk Favorit">
+<i class="bi bi-heart"></i>
+</button>
+
+<button class="icon-btn" onclick="showCart()"
+title="Keranjang">
+<i class="bi bi-bag"></i>
+<span class="cart-count" id="cartCount">0</span>
+</button>
+
+</div>
+</div>
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+<div class="container">
+
+<div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+
+<div class="carousel-inner">
+
+<div class="carousel-item active">
+<div class="hero-slide">
+<div class="hero-content">
+<small>NEW COLLECTION 2026</small>
+<h1>Style Your Day, Be Your Own Story.</h1>
+<p>Temukan koleksi fashion terbaik untuk menemani setiap langkah dan gaya hidupmu.</p>
+<a href="#produk" class="btn btn-fashion">Belanja Sekarang →</a>
+</div>
+</div>
+</div>
+
+<div class="carousel-item">
+<div class="hero-slide" style="background-image:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.05)),url('images/sawm.jpg')">
+<div class="hero-content">
+<small>FASHION COLLECTION</small>
+<h1>Look Better, Feel Better.</h1>
+<p>Gaya sederhana dengan sentuhan elegan untuk penampilan lebih percaya diri.</p>
+<a href="#kategori" class="btn btn-fashion">Lihat Koleksi</a>
+</div>
+</div>
+</div>
+
+<div class="carousel-item">
+<div class="hero-slide" style="background-image:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.05)),url('images/blizttt2.jpg')">
+<div class="hero-content">
+<small>DISCOVER YOUR STYLE</small>
+<h1>Fashion For Everyone.</h1>
+<p>Pilihan fashion pria, wanita dan anak dalam satu tempat.</p>
+<a href="#produk" class="btn btn-fashion">Explore Now</a>
+</div>
+</div>
+</div>
+
+</div>
+
+<button class="carousel-control-prev" type="button"
+data-bs-target="#heroSlider" data-bs-slide="prev">
+<span class="carousel-control-prev-icon"></span>
+</button>
+
+<button class="carousel-control-next" type="button"
+data-bs-target="#heroSlider" data-bs-slide="next">
+<span class="carousel-control-next-icon"></span>
+</button>
+
+</div>
+</div>
+</section>
+
+<!-- KATEGORI -->
+
+<section class="section-space" id="kategori">
+<div class="container">
+
+<div class="text-center">
+<h2 class="section-title">Kategori Pilihan</h2>
+<p class="section-subtitle">Pilih kategori fashion favoritmu</p>
+</div>
+
+<div class="category-buttons">
+<button class="category-btn active" onclick="filterCategory('Semua',this)">Semua Produk</button>
+<button class="category-btn" onclick="filterCategory('Pria',this)">Fashion Pria</button>
+<button class="category-btn" onclick="filterCategory('Wanita',this)">Fashion Wanita</button>
+<button class="category-btn" onclick="filterCategory('Anak',this)">Fashion Anak</button>
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+<div class="product-card">
+<div class="product-image">
+<img src="images/model pria.jpeg" alt="Fashion Pria">
+</div>
+<div class="product-info text-center">
+<h6>Fashion Pria</h6>
+<button class="btn btn-fashion mt-2"
+onclick="filterCategory('Pria',document.querySelectorAll('.category-btn')[1]);document.getElementById('produk').scrollIntoView()">
+Lihat Produk
+</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="product-card">
+<div class="product-image">
+<img src="images/wanita.png" alt="Fashion Wanita">
+</div>
+<div class="product-info text-center">
+<h6>Fashion Wanita</h6>
+<button class="btn btn-fashion mt-2"
+onclick="filterCategory('Wanita',document.querySelectorAll('.category-btn')[2]);document.getElementById('produk').scrollIntoView()">
+Lihat Produk
+</button>
+</div>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="product-card">
+<div class="product-image">
+<img src="images/foto anak anak.png" alt="Fashion Anak">
+</div>
+<div class="product-info text-center">
+<h6>Fashion Anak</h6>
+<button class="btn btn-fashion mt-2"
+onclick="filterCategory('Anak',document.querySelectorAll('.category-btn')[3]);document.getElementById('produk').scrollIntoView()">
+Lihat Produk
+</button>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PRODUK -->
+
+<section class="section-space bg-white" id="produk">
+<div class="container">
+
+<div class="text-center">
+<h2 class="section-title">Produk Terbaru</h2>
+<p class="section-subtitle">Koleksi terbaik dengan harga bersahabat</p>
+</div>
+
+<div class="row g-4" id="productList">
+
+<!-- PRODUK PRIA -->
+
+<div class="col-6 col-lg-3 product-item" data-category="Pria">
+<div class="product-card">
+<div class="product-image">
+<span class="product-label">NEW</span>
+<img src="images/model 2.jpeg" alt="Casual Shirt">
+</div>
+<div class="product-info">
+<h6>Casual Shirt</h6>
+<div class="price">Rp125.000</div>
+<small class="text-muted">★★★★★ (12)</small>
+<div class="product-actions">
+<button class="btn-love" onclick="addFavorite(this)">
+<i class="bi bi-heart"></i>
+</button>
+<button class="btn-cart" onclick="addToCart(this)">
+<i class="bi bi-bag-plus"></i> Keranjang
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-6 col-lg-3 product-item" data-category="Pria">
+<div class="product-card">
+<div class="product-image">
+<img src="images/model1.jpg" alt="Premium Style">
+</div>
+<div class="product-info">
+<h6>Premium Style</h6>
+<div class="price">Rp175.000</div>
+<small class="text-muted">★★★★★ (10)</small>
+<div class="product-actions">
+<button class="btn-love" onclick="addFavorite(this)">
+<i class="bi bi-heart"></i>
+</button>
+<button class="btn-cart" onclick="addToCart(this)">
+<i class="bi bi-bag-plus"></i> Keranjang
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- PRODUK WANITA -->
+
+<div class="col-6 col-lg-3 product-item" data-category="Wanita">
+<div class="product-card">
+<div class="product-image">
+<span class="product-label">SALE</span>
+<img src="images/wanita2.png" alt="Modern Outfit">
+</div>
+<div class="product-info">
+<h6>Modern Outfit</h6>
+<div class="price">Rp150.000</div>
+<small class="text-muted">★★★★★ (8)</small>
+<div class="product-actions">
+<button class="btn-love" onclick="addFavorite(this)">
+<i class="bi bi-heart"></i>
+</button>
+<button class="btn-cart" onclick="addToCart(this)">
+<i class="bi bi-bag-plus"></i> Keranjang
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-6 col-lg-3 product-item" data-category="Wanita">
+<div class="product-card">
+<div class="product-image">
+<img src="images/dress wanita.png" alt="Elegant Dress">
+</div>
+<div class="product-info">
+<h6>Elegant Dress</h6>
+<div class="price">Rp180.000</div>
+<small class="text-muted">★★★★★ (14)</small>
+<div class="product-actions">
+<button class="btn-love" onclick="addFavorite(this)">
+<i class="bi bi-heart"></i>
+</button>
+<button class="btn-cart" onclick="addToCart(this)">
+<i class="bi bi-bag-plus"></i> Keranjang
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- PRODUK ANAK -->
+
+<div class="col-6 col-lg-3 product-item" data-category="Anak">
+<div class="product-card">
+<div class="product-image">
+<span class="product-label">NEW</span>
+<img src="images/anak anak 2.png" alt="Kids Fashion">
+</div>
+<div class="product-info">
+<h6>Kids Fashion</h6>
+<div class="price">Rp100.000</div>
+<small class="text-muted">★★★★★ (15)</small>
+<div class="product-actions">
+<button class="btn-love" onclick="addFavorite(this)">
+<i class="bi bi-heart"></i>
+</button>
+<button class="btn-cart" onclick="addToCart(this)">
+<i class="bi bi-bag-plus"></i> Keranjang
+</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-6 col-lg-3 product-item" data-category="Anak">
+<div class="product-card">
+<div class="product-image">
+<img src="images/foto anak anak.png" alt="Kids Casual">
+</div>
+<div class="product-info">
+<h6>Kids Casual</h6>
+<div class="price">Rp120.000</div>
+<small class="text-muted">★★★★★ (9)</small>
+<div class="product-actions">
+<button class="btn-love" onclick="addFavorite(this)">
+<i class="bi bi-heart"></i>
+</button>
+<button class="btn-cart" onclick="addToCart(this)">
+<i class="bi bi-bag-plus"></i> Keranjang
+</button>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<p id="noProduct" class="text-center text-muted mt-4" style="display:none">
+Produk tidak ditemukan.
+</p>
+
+</div>
+</section>
+
+<!-- PROMO -->
+
+<!--<section class="section-space" id="promo">
+<div class="container">
+<div class="promo">
+<div class="row align-items-center">
+<div class="col-lg-8">
+<small>SPECIAL OFFER</small>
+<h2 class="mt-3">Upgrade Your Style<br>With <span>Special Deals!</span></h2>
+<p class="text-white-50 mt-3">Temukan koleksi pilihan dengan penawaran menarik.</p>
+<a href="#produk" class="btn btn-fashion">Belanja Sekarang</a>
+</div>
+<div class="col-lg-4 text-center mt-4">
+<i class="bi bi-bag-heart" style="font-size:120px;color:#d99a74"></i>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<-- NEWSLETTER -->
+
+<section class="section-space" id="kontak">
+<div class="container">
+<div class="newsletter">
+<h2 class="section-title">Stay Connected!</h2>
+<p class="section-subtitle">Dapatkan informasi produk dan promo terbaru dari Bizttt.</p>
+<form onsubmit="event.preventDefault();alert('Terima kasih telah berlangganan!')">
+<input type="email" placeholder="Masukkan email kamu" required>
+<button class="btn btn-fashion">Subscribe</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- MODAL KERANJANG -->
+
+<div class="modal fade" id="cartModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title">
+<i class="bi bi-bag me-2"></i> Keranjang Belanja
+</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+<div id="cartItems"></div>
+
+<div class="cart-total">
+<div class="d-flex justify-content-between">
+<strong>Total Belanja</strong>
+<h5 id="cartTotal">Rp0</h5>
+</div>
+<button class="btn btn-fashion w-100 mt-3" onclick="checkout()">
+Lanjutkan Belanja / Checkout
+</button>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- MODAL FAVORIT -->
+
+<div class="modal fade" id="favoriteModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+
+<div class="modal-header">
+<h5 class="modal-title">
+<i class="bi bi-heart-fill text-danger me-2"></i> Produk Favorit
+</h5>
+<button class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+<div id="favoriteItems"></div>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+<div class="container">
+<div class="row g-4">
+
+<div class="col-md-4">
+<h5>BIZTTT.</h5>
+<p>Temukan gaya terbaikmu bersama Blizttt. Fashion berkualitas untuk setiap momen dan setiap generasi.</p>
+</div>
+
+<div class="col-md-2">
+<h5>Menu</h5>
+<p><a href="#home">Home</a></p>
+<p><a href="#kategori">Kategori</a></p>
+<p><a href="#produk">Produk</a></p>
+<p><a href="#promo">Promo</a></p>
+</div>
+
+<div class="col-md-3">
+<h5>Kategori</h5>
+<p><a href="#kategori">Fashion Pria</a></p>
+<p><a href="#kategori">Fashion Wanita</a></p>
+<p><a href="#kategori">Fashion Anak</a></p>
+</div>
+
+<div class="col-md-3">
+<h5>Hubungi Kami</h5>
+<p><i class="bi bi-envelope me-2"></i> info@blizttt.com</p>
+<p><i class="bi bi-telephone me-2"></i> 08xxxxxxxxxx</p>
+<p><i class="bi bi-geo-alt me-2"></i> Indonesia</p>
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 Blizttt Fashion Store. All Rights Reserved.
+</div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+/* DATA KERANJANG DAN FAVORIT */
+
+let cart = JSON.parse(localStorage.getItem("biztttCart")) || [];
+let favorites = JSON.parse(localStorage.getItem("biztttFavorites")) || [];
+
+const cartModal = new bootstrap.Modal(document.getElementById('cartModal'));
+const favoriteModal = new bootstrap.Modal(document.getElementById('favoriteModal'));
+
+/* FORMAT RUPIAH */
+
+function rupiah(number){
+return "Rp" + number.toLocaleString("id-ID");
+}
+
+/* FILTER KATEGORI */
+
+function filterCategory(category,button){
+
+document.querySelectorAll('.category-btn').forEach(btn=>{
+btn.classList.remove('active');
+});
+
+if(button) button.classList.add('active');
+
+document.querySelectorAll('.product-item').forEach(item=>{
+
+let itemCategory = item.dataset.category;
+
+item.style.display =
+(category === 'Semua' || itemCategory === category)
+? ''
+: 'none';
+
+});
+
+document.getElementById('searchInput').value='';
+document.getElementById('noProduct').style.display='none';
+
+}
+
+/* PENCARIAN PRODUK */
+
+function searchProducts(){
+
+let keyword = document.getElementById('searchInput').value.toLowerCase();
+let visible = 0;
+
+document.querySelectorAll('.product-item').forEach(item=>{
+
+let name = item.querySelector('h6').textContent.toLowerCase();
+
+let match = name.includes(keyword);
+
+item.style.display = match ? '' : 'none';
+
+if(match) visible++;
+
+});
+
+document.querySelectorAll('.category-btn').forEach(btn=>{
+btn.classList.remove('active');
+});
+
+document.getElementById('noProduct').style.display =
+visible === 0 ? 'block' : 'none';
+
+}
+
+/* AMBIL DATA PRODUK */
+
+function getProduct(button){
+
+let card = button.closest('.product-card');
+
+return {
+name:card.querySelector('h6').textContent,
+price:Number(
+card.querySelector('.price').textContent.replace(/\D/g,'')
+),
+image:card.querySelector('img').getAttribute('src')
+};
+
+}
+
+/* TAMBAH KERANJANG */
+
+function addToCart(button){
+
+let product = getProduct(button);
+
+let existing = cart.find(item=>item.name===product.name);
+
+if(existing){
+existing.quantity++;
+}else{
+cart.push({...product,quantity:1});
+}
+
+saveCart();
+
+alert(product.name + " berhasil ditambahkan ke keranjang!");
+
+}
+
+/* SIMPAN DATA KERANJANG */
+
+function saveCart(){
+
+localStorage.setItem('biztttCart',JSON.stringify(cart));
+
+updateCartCount();
+
+}
+
+/* JUMLAH KERANJANG */
+
+function updateCartCount(){
+
+let total = cart.reduce((sum,item)=>sum+item.quantity,0);
+
+document.getElementById('cartCount').textContent=total;
+
+}
+
+/* TAMPILKAN KERANJANG */
+
+function showCart(){
+
+renderCart();
+cartModal.show();
+
+}
+
+/* ISI KERANJANG */
+
+function renderCart(){
+
+let container = document.getElementById('cartItems');
+
+if(cart.length===0){
+
+container.innerHTML=`
+<div class="favorite-empty">
+<i class="bi bi-bag" style="font-size:45px"></i>
+<h6 class="mt-3">Keranjang masih kosong</h6>
+<p>Silakan pilih produk favoritmu!</p>
+</div>`;
+
+}else{
+
+container.innerHTML=cart.map((item,index)=>`
+
+<div class="cart-item">
+
+<img src="${item.image}" alt="${item.name}">
+
+<div class="cart-item-info">
+<h6>${item.name}</h6>
+<p>${rupiah(item.price)}</p>
+
+<div class="quantity-control">
+<button onclick="changeQuantity(${index},-1)">-</button>
+<span>${item.quantity}</span>
+<button onclick="changeQuantity(${index},1)">+</button>
+</div>
+
+</div>
+
+<button class="remove-btn" onclick="removeCart(${index})">
+<i class="bi bi-trash"></i>
+</button>
+
+</div>
+
+`).join('');
+
+}
+
+let total = cart.reduce((sum,item)=>
+sum+(item.price*item.quantity),0);
+
+document.getElementById('cartTotal').textContent=rupiah(total);
+
+}
+
+/* UBAH JUMLAH PRODUK */
+
+function changeQuantity(index,change){
+
+cart[index].quantity+=change;
+
+if(cart[index].quantity<=0){
+cart.splice(index,1);
+}
+
+saveCart();
+renderCart();
+
+}
+
+/* HAPUS PRODUK */
+
+function removeCart(index){
+
+cart.splice(index,1);
+
+saveCart();
+renderCart();
+
+}
+
+/* FAVORIT */
+
+function addFavorite(button){
+
+let product = getProduct(button);
+
+let existing = favorites.find(item=>item.name===product.name);
+
+if(existing){
+
+favorites=favorites.filter(item=>item.name!==product.name);
+
+button.classList.remove('loved');
+button.innerHTML='<i class="bi bi-heart"></i>';
+
+alert("Produk dihapus dari favorit");
+
+}else{
+
+favorites.push(product);
+
+button.classList.add('loved');
+button.innerHTML='<i class="bi bi-heart-fill"></i>';
+
+alert("Produk berhasil disimpan ke favorit!");
+
+}
+
+localStorage.setItem('biztttFavorites',JSON.stringify(favorites));
+
+}
+
+/* TAMPILKAN FAVORIT */
+
+function showFavorites(){
+
+let container=document.getElementById('favoriteItems');
+
+if(favorites.length===0){
+
+container.innerHTML=`
+<div class="favorite-empty">
+<i class="bi bi-heart" style="font-size:45px"></i>
+<h6 class="mt-3">Belum ada produk favorit</h6>
+<p>Klik tombol love untuk menyimpan produk.</p>
+</div>`;
+
+}else{
+
+container.innerHTML=favorites.map((item,index)=>`
+
+<div class="cart-item">
+
+<img src="${item.image}" alt="${item.name}">
+
+<div class="cart-item-info">
+<h6>${item.name}</h6>
+<p>${rupiah(item.price)}</p>
+</div>
+
+<button class="btn-cart" onclick="favoriteToCart(${index})">
+<i class="bi bi-bag-plus"></i> Keranjang
+</button>
+
+<button class="remove-btn" onclick="removeFavorite(${index})">
+<i class="bi bi-trash"></i>
+</button>
+
+</div>
+
+`).join('');
+
+}
+
+favoriteModal.show();
+
+}
+
+/* FAVORIT KE KERANJANG */
+
+function favoriteToCart(index){
+
+let product=favorites[index];
+
+let existing=cart.find(item=>item.name===product.name);
+
+if(existing){
+existing.quantity++;
+}else{
+cart.push({...product,quantity:1});
+}
+
+saveCart();
+
+alert("Produk berhasil masuk keranjang!");
+
+}
+
+/* HAPUS FAVORIT */
+
+function removeFavorite(index){
+
+favorites.splice(index,1);
+
+localStorage.setItem('biztttFavorites',JSON.stringify(favorites));
+
+showFavorites();
+
+}
+
+/* CHECKOUT */
+
+function checkout(){
+
+if(cart.length===0){
+
+alert("Keranjang masih kosong!");
+
+return;
+
+}
+
+alert("Keranjang berhasil disiapkan. Fitur pembayaran dapat dihubungkan ke sistem checkout.");
+
+}
+/* DROPDOWN KATEGORI NAVBAR */
+
+function pilihKategori(category) {
+
+    let buttons = document.querySelectorAll('.category-btn');
+
+    let index = {
+        'Pria': 1,
+        'Wanita': 2,
+        'Anak': 3
+    };
+
+    filterCategory(category, buttons[index[category]]);
+
+    document.getElementById('searchInput').value = '';
+
+    document.getElementById('produk').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+
+}
+
+/* INISIALISASI */
+
+updateCartCount();
+
+</script>
+
+</body>
+</html>
+```
